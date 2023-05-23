@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 // app.use(bodyParser.urlencoded({ extended: true }));
 
 // 3. routes & controller logic (CRUD)
-// require("./routes/store.routes")(app);
+require("./routes/buddy.routes")(app);
 
 // 4. listen to the port
 app.listen(8000, () => console.log(`Listening to the port: 8000`));

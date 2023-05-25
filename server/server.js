@@ -2,9 +2,10 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
-const db = require("./db");
+const db = require("./db/index");
 
 const app = express();
+const productRouter = require("./routes/productRouter");
 
 var corsOptions = {
   origin: "http://localhost:3000",
@@ -14,7 +15,7 @@ app.use(cors(corsOptions));
 app.use(bodyParser.json);
 app.use(bodyParser.urlencoded({ extended: true }));
 
-db.on("error", console.error.bnd(console, "MongoDB connection has failed:"));
+db.on("error", console.error.bind(console, "MongoDB connection has failed:"));
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to Food Ordering" });
 });
